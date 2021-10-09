@@ -6,33 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="AddMusic.css">
     <title>Spoty</title>
 </head>
 <body>
-        <img src="image/ab67616d0000b2736029febcb938b2b8cb279b47.jpg">
-        <div class="descricao">
-            <h2>Bossa UH!</h2>
-            <i>postu</i>
+    <div class="imagem">
+    <img src="image/ab67616d0000b2736029febcb938b2b8cb279b47.jpg">
+    <i class="fas fa-plus-circle open" id="addMusic_button_open"></i>
+    <i class="fas fa-plus-circle" id="addMusic_button_close"></i>
+    <div class="hidden_page" id='hidden_page'>
+    <div class="page-addMusic" id='page-addMusic' data-anime='up'>
+        <h1 data-anime='up'>Name</h1>
+        <input type="text" id="File_setName">
+        <h1 data-anime='up'>Music</h1>
+        <input type="file" id="File_music" accept="audio/*">
+        <h1 data-anime='up'>Image</h1>
+        <input type="file" id="File_musicImg" accept="image/*">
+        <h1 data-anime='up'>Artist</h1>
+        <input type="text" id="File_setArtist">
+        <div class="buttons">
+            <input type="button" value="ADD MUSIC" id='add_music'>
+            <input type="button" value="DELL MUSIC" class="delete_Music" id='delete_Music'>
         </div>
-        <div class="MusicPlayer">
-            <div class="timeLine">
-                <progress value="0" max="1"></progress>
-                <div class="ponto"></div>
-            </div>
-            <div class="duraction">
-                <p class="start">00:00</p>
-                <p class="end">3:21</p>
-            </div>
+    </div>
+    </div> 
+    </div>
+    <div class="descricao">
+        <h2>Bossa UH!</h2>
+        <i>postu</i>
+    </div>
+    <div class="MusicPlayer">
+        <div class="timeLine">
+            <progress value="0" max="1"></progress>
+            <div class="ponto"></div>
         </div>
-        <div class="player">
-            <i class="fas fa-step-backward setas back"></i>
-            <i class="fas fa-play-circle botao-play"></i>
-            <i class="fas fa-pause-circle botao-pause" style="display: none;"></i>
-            <i class="fas fa-step-forward setas next"></i>
+        <div class="duraction">
+            <p class="start">00:00</p>
+            <p class="end">3:21</p>
+        </div>
+    </div>
+    <div class="player">
+        <i class="fas fa-step-backward setas back"></i>
+        <i class="fas fa-play-circle botao-play"></i>
+        <i class="fas fa-pause-circle botao-pause" style="display: none;"></i>
+        <i class="fas fa-step-forward setas next"></i>
 
-        </div>
-        <audio src="music/bossa uh.mp3">
+    </div>
+    <audio src="music/bossa uh.mp3">
 </body>
-<script src="index.js"></script>
-
+<script src="js/index.js"></script>
 </html>

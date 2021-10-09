@@ -1,0 +1,105 @@
+.hidden_page{
+    display: none;
+    position: absolute;
+    left: -7px;
+    top: -7px;
+    color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-addMusic{
+    display: flex;
+    flex-direction: column;
+    background-color: #f59e3b;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.page-addMusic h1{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+[data-anime='up']{
+    animation: up .5s ease-out backwards;
+}
+
+[data-anime='up'] h1{
+    animation: up .5s ease-out backwards .3s;
+}
+
+@keyframes up {
+    0%{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+        
+    }
+}
+
+#addMusic_button_open{
+    position: absolute;
+    color: aquamarine;
+    font-size: 40px;
+    left: -10px;
+    top: -10px;
+    transition: all .5s;
+    
+}
+
+#addMusic_button_open:hover{
+    cursor: pointer;
+    color: #28f0ad;
+    transform: rotateZ(90deg);
+}
+
+#addMusic_button_close{
+    z-index: 1;
+    transition: all .5s;
+    position: absolute;
+    font-size: 40px;
+    left: -10px;
+    top: -10px;
+    transition: all .5s;
+    display: none;
+    color: #df4835;
+}
+
+#addMusic_button_close:hover{
+    color: #e7321a;
+    transform: rotateZ(45deg)
+}
+
+.buttons{
+    display:flex;
+    justify-content: space-around;
+}
+
+.buttons input {
+    color: seashell;
+    font-weight: bolder;
+    border: 3px solid #47c200;
+    background-color: #8fe421;
+    height: 30px;
+    width: 40%;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: all ease-in .2s;
+}
+
+.buttons input:hover{
+    width: 45%;
+}
+
+.buttons input:nth-child(2) {
+    color: seashell;
+    border: 3px solid #df4102;
+    background-color: #d42c0e;
+}

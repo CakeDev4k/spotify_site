@@ -7,35 +7,28 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-    <img src="image/ab67616d0000b2736029febcb938b2b8cb279b47.jpg">
-    <input type="button">
-    <audio src="music/bossa uh.mp3" controls>
-
+    <input type="button" value="click" onclick=fileClick>
+    <audio src="" controls> -->
+    <input type="file" id='file' accept="audio/*">
 </body>
 <script>
-let musicList = [
-    {scr:'music/bossa uh.mp3', img:'image/ab67616d0000b2736029febcb938b2b8cb279b47.jpg'},
-    {scr:'music/Chove_Chuva.mp3', img:'image/50ed5a1fe3f83ef792fba361c8f87ef00e11a312.jpg'},
-    {scr:'music/Homem_Primata.mp3', img:'image/500x500.jpg'},
-    {src:"music/NOW'S YOUR CHANCE TO BE THE [[BIG SUS]] (DELTARUNE CHAPTER 2 YTPMV).mp3", img:"NOW'S YOUR CHANCE TO BE THE [[BIG SUS]] (DELTARUNE CHAPTER 2 YTPMV).jpg"},
-];
+const file = document.getElementById('file')
+const audio = document.querySelector('audio')
 
-page = 0
-Music = document.querySelector('audio')
-next = document.querySelector('input')
-imagem = document.querySelector('img')
-next.addEventListener('click',() => {
-    page++;
-    renderMusic(page)
-})
+file.click()
 
-function renderMusic(index){
-
-    Music.setAttribute('src',musicList[index].scr);
-    Music.addEventListener('loadeddata', () => {
-        imagem.src = musicList[index].img
-    });
-    console.log(musicList[index].src)
+function fileClick(){
+    file.click()
 }
+
+file.addEventListener('change', (event) => {
+    const reader = new FileReader()
+
+    reader.onload = () => {
+        console.log(reader.result)
+    }
+
+    reader.readAsDataURL(file.files[0])
+})
 </script>
 </html>

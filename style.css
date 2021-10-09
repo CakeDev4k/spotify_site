@@ -9,11 +9,16 @@ body, html{
     background-color: #333;
     color: #ddd;
 }
+
 img{
     width: 300px;
     height: 300px;
-
 }
+
+.imagem{
+    position: relative;
+}
+
 .descricao{
     width: 300px;
 }
@@ -71,12 +76,12 @@ progress{
 }
 
 .player i:active{
-    animation: setinhas .3s ease-in-out alternate;
+    animation: setinhas .2s ease-out alternate;
 }
 
 @keyframes setinhas {
     from{
-        margin-bottom: 5px;
+        transform: translateY(-10px);
     }
 }
 
