@@ -1,7 +1,7 @@
 .hidden_page{
     display: none;
     position: absolute;
-    left: -7px;
+    left: -5%;
     top: -7px;
     color: azure;
     font-family: Arial, Helvetica, sans-serif;
@@ -48,8 +48,8 @@
     position: absolute;
     color: aquamarine;
     font-size: 40px;
-    left: -10px;
-    top: -10px;
+    left: -7%;
+    top: -14px;
     transition: all .5s;
     
 }
@@ -65,8 +65,8 @@
     transition: all .5s;
     position: absolute;
     font-size: 40px;
-    left: -10px;
-    top: -10px;
+    left: -7%;
+    top: -14px;
     transition: all .5s;
     display: none;
     color: #df4835;
