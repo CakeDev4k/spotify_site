@@ -48,8 +48,8 @@
     position: absolute;
     color: aquamarine;
     font-size: 40px;
-    left: -7%;
-    top: -14px;
+    left: -3%;
+    top: -10px;
     transition: all .5s;
     
 }
@@ -57,24 +57,36 @@
 #addMusic_button_open:hover{
     cursor: pointer;
     color: #28f0ad;
-    transform: rotateZ(90deg);
+    transform: rotateZ(45deg)
 }
 
 #addMusic_button_close{
     z-index: 1;
-    transition: all .5s;
     position: absolute;
     font-size: 40px;
     left: -7%;
     top: -14px;
-    transition: all .5s;
+    animation: button_close .5s ease-out forwards;
     display: none;
     color: #df4835;
 }
 
+@keyframes button_close {
+    from{
+        left: -3%;
+        top: -10px;
+        transform: rotateZ(0deg)
+    }
+    to{
+        left: -7%;
+        top: -14px;
+        transform: rotateZ(45deg)
+    }
+}
+
 #addMusic_button_close:hover{
+    transition: all .5s ease-out;
     color: #e7321a;
-    transform: rotateZ(45deg)
 }
 
 .buttons{
