@@ -11,14 +11,6 @@ let Music = document.querySelector('audio')
 const play = document.querySelector('.botao-play')
 const pause = document.querySelector('.botao-pause')
 
-
-musicList = JSON.parse(localStorage.MusicDB)
-
-function UpdateLocalStrorageMusic(){
-    localStorage.setItem('MusicDB', JSON.stringify(musicList))
-}
-
-
 function SegundosParaMinutos(segundos){
     let campoMinutos = Math.floor(segundos / 60)
     let campoSegundos = segundos % 60;
@@ -121,7 +113,6 @@ function renderMusic(index){
             delete_Music.setAttribute('onclick', `deletar(${musicList[page].id})`)
             Music.play()
         });
-        UpdateLocalStrorageMusic()
     }
 }
 next.addEventListener('click',() => {
@@ -201,7 +192,6 @@ add_music.addEventListener('click', () => {
 
     addMusic_button_close.click()
     console.log(musicList)  
-    UpdateLocalStrorageMusic() 
 })
 
 
@@ -219,7 +209,6 @@ function deletar(id){
             play.style.display = 'none';
             pause.style.display = 'block';
             renderMusic(page)
-            UpdateLocalStrorageMusic()
         }
     }
 }
