@@ -6,9 +6,23 @@ let musicList = [
 ];
 
 let idMusic = 4
+let page = localStorage.pageMusic
 let Music = document.querySelector('audio')
 const play = document.querySelector('.botao-play')
 const pause = document.querySelector('.botao-pause')
+
+
+musicList = JSON.parse(localStorage.MusicDB)
+
+function UpdateLocalStrorageMusic(){
+    localStorage.setItem('MusicDB', JSON.stringify(musicList))
+}
+
+function UpdateLocalStroragePage(){
+    localStorage.setItem('pageMusic', page)
+}
+
+renderMusic(page)
 
 function SegundosParaMinutos(segundos){
     let campoMinutos = Math.floor(segundos / 60)
@@ -28,8 +42,6 @@ let nameArtist = document.querySelector('.descricao i')
 
 const next = document.querySelector('.next')
 const back = document.querySelector('.back')
-
-page = 0
 
 // adicionar musicas
 
@@ -72,6 +84,18 @@ Music.addEventListener('timeupdate', () => {
     const barra = document.querySelector('progress');
     barra.style.width = BarraTimer
     MusicNow.textContent = SegundosParaMinutos(Math.floor(Music.currentTime))
+    if (BarraTimer === '100%'){
+        if (page >= musicList.length-1)
+        {
+            page = 0
+        }
+        else{
+            page++;
+        }
+        renderMusic(page)
+        UpdateLocalStroragePage()
+        Music.play()
+    }
 })
 let timeMusic = document.querySelector('.end');
 timeMusic.innerHTML = SegundosParaMinutos(Math.floor(Music.duration))
@@ -89,8 +113,9 @@ function renderMusic(index){
         imagem.src = musicList[index].img
         timeMusic.innerHTML = SegundosParaMinutos(Math.floor(Music.duration))
         delete_Music.setAttribute('onclick', `deletar(${musicList[page].id})`)
+        Music.play()
+        UpdateLocalStroragePage()
     });
-    Music.play()
     }
     else{
         musicList = [{id: 1, titulo: 'Voce deletou tudo', artista:'Dev', audio:'music/Persona.mp3', img:'image/EvEOUkzXAAwNE3d.jpg'}]
@@ -101,8 +126,9 @@ function renderMusic(index){
             imagem.src = musicList[index].img
             timeMusic.innerHTML = SegundosParaMinutos(Math.floor(Music.duration))
             delete_Music.setAttribute('onclick', `deletar(${musicList[page].id})`)
+            Music.play()
         });
-        Music.play()
+        UpdateLocalStrorageMusic()
     }
 }
 next.addEventListener('click',() => {
@@ -181,7 +207,8 @@ add_music.addEventListener('click', () => {
     })
 
     addMusic_button_close.click()
-    console.log(musicList)    
+    console.log(musicList)  
+    UpdateLocalStrorageMusic() 
 })
 
 
@@ -199,6 +226,7 @@ function deletar(id){
             play.style.display = 'none';
             pause.style.display = 'block';
             renderMusic(page)
+            UpdateLocalStrorageMusic()
         }
     }
 }
